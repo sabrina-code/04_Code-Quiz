@@ -10,6 +10,7 @@ var commentEl = document.querySelector("#comment");
 var correctAnswer;
 var questionsAvailable = []; //limit the amount of questions for game drawen form questions pool
 var acceptingAnswers = false;
+var timerText = document.querySelector("#mytime");
 
 
 var questionEl = document.getElementById("question");//<p> to display the question in HTML
@@ -79,21 +80,26 @@ function getQuestion(){
     return correctAnswer;    
 }
    
-function checkAnswer(clicked_id){       
+function checkAnswer(clicked_id){   
+    myTimer();    
     var response = document.getElementById(clicked_id).textContent;
     if (response==correctAnswer){
       score+=20;     
       document.getElementById(clicked_id).style.backgroundColor = "#2493d3";
       scoreText.innerText = score;
       commentEl.textContent = "Great job! The correct anwser is " + response;
-    }else if(response !== correctAnswer && score >=5 ){ 
-      score-=5;
+    }else if(response !== correctAnswer && t >=15 ){ 
+      t-=15;
+      score;
       scoreText.innerText = score;
+      timerText.innerText = t;
       document.getElementById(clicked_id).style.backgroundColor = "#a00b0b";
       commentEl.textContent = "This is not the right answer";
     }else{
-      score = 0;
+      t=0;
+      score;
       scoreText.innerText = score;
+      timerText.innerText = t;
       document.getElementById(clicked_id).style.backgroundColor = "#a00b0b";
       commentEl.textContent = "This is not the right answer";
     }
@@ -106,18 +112,18 @@ setTimeout(function(){
 } 
 function myTimer(){
   t = t-1;
+
   if (t<60){
   mytime.innerHTML = t;
-  }if(t<30 && score>=1){
-    score=score-1;
-    scoreText.innerText = score;
   }
   if(t < 1){
-    window.clearInterval(update);
-    t = 0;
+    // window.clearInterval(update);
+    t = 1;
+    localStorage.setItem("mostRecentScore", score); //save score to localstorage
     setTimeout(function(){
-      alert("Time is up!");
+      // alert("Time is up!");
       window.location.assign("gameover.html");
+      window.clearInterval(update);
     }, 300);
   } 
 }
