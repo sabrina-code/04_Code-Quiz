@@ -155,7 +155,7 @@ function myTimer(){
   if (t<60 && t>1){
   mytime.innerHTML = t;
   }
-  if(t < 2){
+  if(t < 1){
     // window.clearInterval(update);
     t = 0;
     localStorage.setItem("mostRecentScore", score); //save score to localstorage
