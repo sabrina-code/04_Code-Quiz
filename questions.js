@@ -11,6 +11,7 @@ var correctAnswer;
 var questionsAvailable = []; //limit the amount of questions for game drawen form questions pool
 var acceptingAnswers = false;
 
+
 var questionEl = document.getElementById("question");//<p> to display the question in HTML
 
 var questions = [
@@ -47,6 +48,7 @@ var questions = [
   ];
 
 function startGame(){
+    t = 60; //start time: 45 seconds countdown
     qCounter = 0;//question counter
     score = 0; // increment score for current correct or wrong answer only
     questionsAvailable = [...questions]; //use this way so that we can take the question that is already answered
@@ -73,15 +75,14 @@ function getQuestion(){
     document.querySelector(".buttons").children[i].textContent = thisQuestion.choices[i];
     //assign answer choice to the buttons
     }   
-    questionsAvailable = questionsAvailable.splice(qIndex, 1); //take out the question that is just created for the game 
-    
+    questionsAvailable = questionsAvailable.splice(qIndex, 1); //take out the question that is just created for the game    
     return correctAnswer;    
 }
    
 function checkAnswer(clicked_id){       
     var response = document.getElementById(clicked_id).textContent;
     if (response==correctAnswer){
-      score+=10;     
+      score+=20;     
       document.getElementById(clicked_id).style.backgroundColor = "#2493d3";
       scoreText.innerText = score;
       commentEl.textContent = "Great job! The correct anwser is " + response;
@@ -103,5 +104,25 @@ setTimeout(function(){
     getQuestion();
   }, 300);
 } 
+function myTimer(){
+  t = t-1;
+  if (t<60){
+  mytime.innerHTML = t;
+  }if(t<30 && score>=1){
+    score=score-1;
+    scoreText.innerText = score;
+  }
+  if(t < 1){
+    window.clearInterval(update);
+    t = 0;
+    setTimeout(function(){
+      alert("Time is up!");
+      window.location.assign("gameover.html");
+    }, 300);
+  } 
+}
+update = setInterval("myTimer()", 1000);
+
+
 
 startGame();
