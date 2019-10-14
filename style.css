@@ -1,0 +1,169 @@
+body{
+    background-color: rgb(168, 207, 237);
+}
+
+.container{
+    max-width:700px;
+}
+#home,
+#highscore{
+    padding-top:80px;
+    text-align: center;
+    margin-top:30px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255,255,255, .6);
+}
+#quiz{
+    margin-top:30px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    /* border: 2px solid #b6d888;
+    
+    border-width:5px;  
+    border-style:double; */ 
+    background-color: rgba(255,255,255, .6);
+}
+#gameover{
+    margin-top:60px;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 10px;
+    /* border: 2px solid #b6d888;
+    
+    border-width:5px;  
+    border-style:double; */
+    background-color: rgba(255,255,255, .6);
+}
+h1.gametitle {
+    margin-top: 50px;
+    text-align: center;
+    color:#353643;
+}
+#currentScore{
+    margin-bottom: 20px;
+}
+#scorecounter{
+    float: left;
+    color: rgb(196, 94, 147);
+    width: 120px;
+    font-size: 16px;
+    line-height:30px;
+    padding: 4px 10px;
+}
+#timecounter{
+    float: right;
+    color: rgb(95, 169, 232);
+    width: 120px;
+    font-size: 16px;
+    line-height:30px;
+    padding: 4px 10px;
+}
+#score,
+#timeleft{
+    font-size:40px;
+}
+#question{
+    text-align: left;
+    margin-top: 65px;
+    margin-bottom: 15px;
+    min-height:90px;
+    font-size: 25px;
+    float: left;
+    display: block;
+    width: 100%;
+}
+#btn0,#btn1,#btn2,#btn3{
+    font-size: 20px;
+    padding: 5px 40px;
+    width:100%;
+    margin:5px auto;
+    background-color:#777777;
+    color:white;
+    text-align:left;
+}
+#btn0:hover,
+#btn1:hover,
+#btn2:hover,
+#btn3:hover,
+#btn0:active:hover,
+#btn1:active:hover,
+#btn2:active:hover,
+#btn3:active:hover{
+    background-color: black;
+    color: white;
+}
+#choice0,
+#choice1,
+#choice2,
+#choice3{
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align:left;
+}
+#comment{
+    min-height: 30px;
+}
+#questioncounter {
+    display: inline-block;
+}
+#progress{
+    color: rgb(8, 127, 238);
+    font-size: 30px;
+}
+.btn,
+.btn-save{
+    min-width: 160px;
+    height: 40px;
+    border: 1px solid #9c9c9c;
+    background-color: white;
+    font-size: 20px;  
+    padding-bottom:34px;   
+}
+.btn{
+    margin-top: 50px;  
+}
+.btn-save{
+    margin-top: 15px; 
+    padding-top:5px;
+}
+.btn:hover,
+.btn:active:hover,
+.btn-save:hover,
+.btn-save:active:hover{
+    background-color: black;
+    color: white;
+}
+.btn-save:disabled,
+.btn-save:disabled:hover,
+.btn-save:disabled:active,
+.btn-save:disabled:hover:active {
+    background-color: white;
+    color:#b1b1b1;
+}
+input#username {
+    width: 320px;
+    height: 40px;
+    border: 1px solid #9c9c9c;
+    background-color: white;
+    font-size: 20px; 
+    padding: 15px;
+}
+#finalscore{
+    font-size: 50px;
+}
+.highscore{
+    color:rgb(196, 94, 147);
+}
+ul{
+    margin: 50px 10px;
+    padding-left: 0;
+}
+li{
+    list-style: none;
+    font-size:25px;
+    display: block;
+    color: rgb(8, 99, 179);;
+}
