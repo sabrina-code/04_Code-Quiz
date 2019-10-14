@@ -47,7 +47,7 @@ var questions = [
       answer: "program"
     },
     {
-      title: "WWhich of the following is an interface?",
+      title: "Which of the following is an interface?",
       choices: ["thread", "runnable", "date", "calenda"],
       answer: "thread"
     },
