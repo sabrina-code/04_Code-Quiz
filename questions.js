@@ -46,6 +46,46 @@ var questions = [
       choices: ["interface", "throws", "program", "short"],
       answer: "program"
     },
+    {
+      title: "WWhich of the following is an interface?",
+      choices: ["thread", "runnable", "date", "calenda"],
+      answer: "thread"
+    },
+    {
+      title: "Wwith (function(x, undefined){}) length;",
+      choices: ["1", "2", "undefined", "error"],
+      answer: "2"
+    },
+    {
+      title: "Which of the following is a server-side Java Script object?",
+      choices: ["function", "file", "fileUpload", "date"],
+      answer: "file"
+    },
+    {
+      title: "What language defines the behavior of a web page?",
+      choices: ["HTML", "CSS", "XML", "JavaScript"],
+      answer: "JavaScript"
+    },
+    {
+      title: "What java wrapper type is created when a JavaScript object is sent to Java?",
+      choices: ["ScriptObject", "JavaObject	", "Jobject", "JSObject	"],
+      answer: "JSObject"
+    },
+    {
+      title: "What java wrapper type is created when a JavaScript object is sent to Java?",
+      choices: ["Semicolon", "Semicolon, Ampersand", "Ampersand, colon", "Ampersand, semicolon"],
+      answer: "Ampersand, semicolon"
+    },
+    {
+      title: "Which of the following method is used to evaluate a string of Java Script code in the context of the specified object?",
+      choices: ["Eval", "ParseDoule", "ParseObject", "Efloat"],
+      answer: "Eval"
+    },
+    {
+      title: "What is the alternate name for Java script?",
+      choices: ["LimeScript	", "Both a and d", "ECMScript	", "ECMAScript"],
+      answer: "ECMAScript"
+    }
   ];
 
 function startGame(){
@@ -88,7 +128,7 @@ function checkAnswer(clicked_id){
       document.getElementById(clicked_id).style.backgroundColor = "#2493d3";
       scoreText.innerText = score;
       commentEl.textContent = "Great job! The correct anwser is " + response;
-    }else if(response !== correctAnswer && t >=15 ){ 
+    }else if(response !== correctAnswer && t >=16 ){ 
       t-=15;
       score;
       scoreText.innerText = score;
@@ -111,14 +151,13 @@ setTimeout(function(){
   }, 300);
 } 
 function myTimer(){
-  t = t-1;
-
-  if (t<60){
+  t -= 1;
+  if (t<60 && t>1){
   mytime.innerHTML = t;
   }
-  if(t < 1){
+  if(t < 2){
     // window.clearInterval(update);
-    t = 1;
+    t = 0;
     localStorage.setItem("mostRecentScore", score); //save score to localstorage
     setTimeout(function(){
       // alert("Time is up!");
