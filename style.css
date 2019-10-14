@@ -167,3 +167,6 @@ li{
     display: block;
     color: rgb(8, 99, 179);;
 }
+#home p{
+    text-align: left;
+}
