@@ -54,9 +54,14 @@ var questions = [
     answer: "thread",
   },
   {
-    title: "Wwith (function(x, undefined){}) length;",
-    choices: ["1", "2", "undefined", "error"],
-    answer: "2",
+    title: "Where is the correct place to insert a JavaScript?",
+    choices: [
+      "the <head> section",
+      "the <body> section",
+      "both <head> and <body> sections",
+      "anywere",
+    ],
+    answer: "both <head> and <body> sections",
   },
   {
     title: "Which of the following is a server-side Java Script object?",
