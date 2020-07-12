@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rajdhani"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
 
     <title>Code Quiz</title>
-</head>
-<body>
-        <section id="quizpage" class="container">
-                <h1 class="gametitle">Quiz Game</h1>
-                <div id="quiz">
-                    <div id="top">
-                        <div id="scorecounter" class="col-md-3">Score: <h3 id="score">0</h3></div>
-                        <div id="timecounter" class="col-md-3">Time:  <h3 id="mytime">60</h3></div>
-                        <div id="questioncounter" class="col-md-5">Questions: <span id="progress"></span></div>
-                    </div>
-                    <p id="question"></p>
-        
-                    <div class="buttons">
-                        <button id="btn0" onclick="checkAnswer(this.id)"></button>
-                        <button id="btn1" onclick="checkAnswer(this.id)"></button>
-                        <button id="btn2" onclick="checkAnswer(this.id)"></button>
-                        <button id="btn3" onclick="checkAnswer(this.id)"></button>
-                    </div>
-        
-                    <h5 id="comment"></h5>
-                    
-                    </div>
-                </div>
-            </section>
+  </head>
+  <body>
+    <div id="quizpage" class="container">
+      <a class="btn instruction" href="index.html">Instruction</a>
+      <h1 class="gametitle">Quiz Game</h1>
+      <div id="quiz">
+        <div id="top">
+          <div id="scorecounter" class="col-md-3">
+            Score:
+            <h3 id="score">0</h3>
+          </div>
+          <div id="timecounter" class="col-md-3">
+            Time:
+            <h3 id="mytime">60</h3>
+          </div>
+          <div id="questioncounter" class="col-md-5">
+            Questions: <span id="progress"></span>
+          </div>
+        </div>
 
-  
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="questions.js"></script> 
-<script src="highscore.js"></script>   
+        <p id="question"></p>
+        <div class="buttons">
+          <button id="btn0" onclick="checkAnswer(this.id)"></button>
+          <button id="btn1" onclick="checkAnswer(this.id)"></button>
+          <button id="btn2" onclick="checkAnswer(this.id)"></button>
+          <button id="btn3" onclick="checkAnswer(this.id)"></button>
+        </div>
+        <h5 id="comment"></h5>
+      </div>
+    </div>
 
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="questions.js"></script>
+  </body>
 </html>
