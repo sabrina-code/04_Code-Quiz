@@ -1,15 +1,18 @@
-let score = 0;
-let scoreText = document.querySelector("#score");
-let questionCounter = document.querySelector("#progress");
-let thisQuestion;
-let questionsAsked = 0; //question counter
-let commentEl = document.querySelector("#comment");
-let correctAnswer;
-let questionsAvailable = []; //limit the amount of questions for game drawen form questions pool
-let timerText = document.querySelector("#mytime");
-let theQuestion = document.getElementById("question"); //<p> to display the question in HTML
+var score = 0;
+var scoreText = document.querySelector("#score");
+var questioncounterText = document.querySelector("#progress");
+var timecounterText = document.querySelector("#timeLeft");
+var thisQuestion;
+var qCounter = 0; //question counter
+var quizEl = document.querySelector("#quiz");
+var commentEl = document.querySelector("#comment");
+var correctAnswer;
+var questionsAvailable = [];
+var acceptingAnswers = false;
+var timerText = document.querySelector("#mytime");
+var questionEl = document.getElementById("question"); //<p> to display the question in HTML
 
-let questions = [
+var questions = [
   {
     title: "Commonly used data types DO NOT include:",
     choices: ["strings", "booleans", "alerts", "numbers"],
@@ -90,64 +93,50 @@ let questions = [
   },
   {
     title: "What is the alternate name for Java script?",
-    choices: ["LimeScript", "Both a and d", "ECMScript", "ECMAScript"],
+    choices: ["LimeScript	", "Both a and d", "ECMScript	", "ECMAScript"],
     answer: "ECMAScript",
-  },
-  {
-    title:
-      "What is the HTML tag under which one can write the JavaScript code?",
-    choices: ["<javascript>", "<scripted>", "<script>", "<js>"],
-    answer: "<script>",
   },
 ];
 
-const startGame = () => {
-  t = 60; //start time: 60 seconds countdown
-  questionsAsked = 0;
+function startGame() {
+  t = 45; //45 seconds countdown
+  qCounter = 0; //question counter
   score = 0;
-  questionsAvailable = [...questions]; //use this way so that we can take the question that is already answered
+  questionsAvailable = [...questions];
   getQuestion();
-};
+}
 
-const getQuestion = () => {
-  if (questionsAvailable.length == 0 || questionsAsked > questions.length - 1) {
+function getQuestion() {
+  if (questionsAvailable.length == 0 || qCounter > questions.length - 1) {
     localStorage.setItem("mostRecentScore", score); //save score to localstorage
     return window.location.assign("gameover.html"); // if questions run out, go to gameover screen
   }
-  questionsAsked++;
+  qCounter++;
 
-  questionCounter.textContent = questionsAsked + "/" + questions.length;
+  questioncounterText.textContent = qCounter + "/" + questions.length;
 
-  let qIndex = Math.floor(Math.random() * questions.length); //random index for randam questions
-  let thisQuestion = questions[qIndex];
-  theQuestion.innerText = thisQuestion.title; //put what is asked,questions.title, in <p> in HTML
+  var qIndex = Math.floor(Math.random() * questions.length); //randam index for random quesrion
+  var thisQuestion = questions[qIndex];
+  questionEl.innerText = thisQuestion.title; //put what is asked,questions.title, in <p> in HTML
   correctAnswer = thisQuestion.answer;
 
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < questionsAvailable.length; i++) {
     document.querySelector(".buttons").children[i].textContent =
-      thisQuestion.choices[i];
-    //assign answer choice to the buttons
+      thisQuestion.choices[i]; //assign answer choice to the buttons
   }
-  questionsAvailable = questionsAvailable.splice(qIndex, 1); //take out the question that is just created for the game
+  questionsAvailable = questionsAvailable.splice(qIndex, 1); //take out the question asked
   return correctAnswer;
-};
-const checkAnswer = (clicked_id) => {
+}
+
+function checkAnswer(clicked_id) {
   myTimer();
-  let response = document.getElementById(clicked_id).textContent;
+  var response = document.getElementById(clicked_id).textContent;
   if (response == correctAnswer) {
     score += 20;
     document.getElementById(clicked_id).style.backgroundColor = "#2493d3";
     scoreText.innerText = score;
     commentEl.textContent = "Great job! The correct anwser is " + response;
-  } else if (response !== correctAnswer && t >= 16) {
-    t -= 15;
-    score;
-    scoreText.innerText = score;
-    timerText.innerText = t;
-    document.getElementById(clicked_id).style.backgroundColor = "#a00b0b";
-    commentEl.textContent = "This is not the right answer";
-  } else {
-    t = 0;
+  } else if (response !== correctAnswer) {
     score;
     scoreText.innerText = score;
     timerText.innerText = t;
@@ -159,19 +148,17 @@ const checkAnswer = (clicked_id) => {
     document.getElementById(clicked_id).style.backgroundColor = "#777777";
     commentEl.textContent = "";
     getQuestion();
-  }, 3000);
-};
+  }, 300);
+}
 function myTimer() {
   t -= 1;
   if (t < 60 && t > 1) {
     mytime.innerHTML = t;
   }
   if (t < 1) {
-    // window.clearInterval(update);
     t = 0;
     localStorage.setItem("mostRecentScore", score); //save score to localstorage
     setTimeout(function () {
-      // alert("Time is up!");
       window.location.assign("gameover.html");
       window.clearInterval(update);
     }, 300);
