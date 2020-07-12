@@ -1,11 +1,9 @@
 let username = document.getElementById("username");
 let saveBtn = document.getElementById("save");
-
 let mostRecentScore = localStorage.getItem("mostRecentScore");
 let finalScore = document.getElementById("finalscore");
 let highScore = JSON.parse(localStorage.getItem("highScore")) || [];
 //make the highScore string for localStorage do: localStorage.setItem("highScore", JSON.stringify([]));
-//convert to an array object by JSON.parse, to ckeck: console.log(JSON.parse(localStorage.getItem("highScore")));
 
 finalScore.innerText = mostRecentScore;
 
