@@ -22,6 +22,7 @@ https://sabrina-code.github.io/CodeQuiz4/
 - CSS3
 - Bootstrap v4.3.1
 - JavaScript
+- Local Storage
 - Adobe Creative Cloud (Suite)
 
 ### Author and License
