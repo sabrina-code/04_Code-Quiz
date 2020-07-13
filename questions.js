@@ -150,7 +150,6 @@ function checkAnswer(clicked_id) {
   }
 
   setTimeout(function () {
-    document.getElementById(clicked_id).style.backgroundColor = "#777777";
     commentEl.textContent = "";
     getQuestion();
   }, 300);
