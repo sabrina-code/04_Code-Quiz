@@ -13,9 +13,9 @@
 
 https://sabrina-code.github.io/CodeQuiz4/
 
-![profile](https://github.com/sabrina-code/theBlkCorHandleB0531/blob/master/codequiz1.jpg)
+![profile](https://github.com/sabrina-code/CodeQuiz4/blob/master/codequiz1.jpg)
 
-![profile](https://github.com/sabrina-code/theBlkCorHandleB0531/blob/master/codequiz2.jpg)
+![profile](https://github.com/sabrina-code/CodeQuiz4/blob/master/codequiz2.jpg)
 
 ## Technology and Skills
 
