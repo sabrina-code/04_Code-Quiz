@@ -1,18 +1,15 @@
-var score = 0;
-var scoreText = document.querySelector("#score");
-var questioncounterText = document.querySelector("#progress");
-var timecounterText = document.querySelector("#timeLeft");
-var thisQuestion;
-var qCounter = 0; //question counter
-var quizEl = document.querySelector("#quiz");
-var commentEl = document.querySelector("#comment");
-var correctAnswer;
-var questionsAvailable = [];
-var acceptingAnswers = false;
-var timerText = document.querySelector("#mytime");
-var questionEl = document.getElementById("question"); //<p> to display the question in HTML
+const questionEl = document.getElementById("question"); //<p> to display the question in HTML
+const quizEl = document.querySelector("#quiz");
+const commentEl = document.querySelector("#comment");
+const questioncounterText = document.querySelector("#progress");
+const scoreText = document.querySelector("#score");
 
-var questions = [
+let score = 0;
+let qCounter = 0; //question counter
+let thisQuestion;
+let correctAnswer;
+
+let questions = [
   {
     title: "Commonly used data types DO NOT include:",
     choices: ["strings", "booleans", "alerts", "numbers"],
@@ -50,7 +47,7 @@ var questions = [
   },
   {
     title: "Which of the following is an interface?",
-    choices: ["thread", "runnable", "date", "calenda"],
+    choices: ["thread", "runnable", "date", "calendar"],
     answer: "thread",
   },
   {
@@ -98,68 +95,110 @@ var questions = [
   },
   {
     title: "What is the alternate name for Java script?",
-    choices: ["LimeScript	", "Both a and d", "ECMScript	", "ECMAScript"],
+    choices: ["LimeScript	", "Both a and d", "ECMScript", "ECMAScript"],
     answer: "ECMAScript",
+  },
+  {
+    title: "What is the correct syntax for adding comments in JavaScript?",
+    choices: [
+      "<!–This is a comment–&gt",
+      "//This is a comment",
+      "–This is a comment ",
+      "**This is a comment**",
+    ],
+    answer: "//This is a comment",
+  },
+  {
+    title: "What is the JavaScript syntax for printing values in Console?",
+    choices: [
+      "print(5)",
+      "console.log(5);",
+      "console.print(5); ",
+      "print.console(5);",
+    ],
+    answer: "console.log(5);",
+  },
+  {
+    title:
+      "What is the method in JavaScript used to remove the whitespace at the beginning and end of any string?",
+    choices: ["strip()", "trim()", "stripped()", "trimmed()"],
+    answer: "trim()",
+  },
+  {
+    title:
+      "Which function of an Array object calls a function for each element in the array?",
+    choices: ["forEach()", "every()", "forEvery()", "each()"],
+    answer: "forEach()",
+  },
+  {
+    title: "Which was the first browser to support JavaScript?",
+    choices: ["Mozilla Firefox", "Netscape", "Google Chrome", "IE"],
+    answer: "Netscape",
+  },
+  {
+    title: "Which of the following is an advantage of using JavaScript?",
+    choices: [
+      "ncreased interactivity.",
+      "Less server interaction.",
+      "Immediate feedback from the users.",
+      "All of the above.",
+    ],
+    answer: "All of the above.",
   },
 ];
 
 function startGame() {
-  t = 45; //45 seconds countdown
+  t = 45; //45 second countdown
   qCounter = 0; //question counter
   score = 0;
   questionsAvailable = [...questions];
+  myTimer();
   getQuestion();
 }
 
 function getQuestion() {
-  if (questionsAvailable.length == 0 || qCounter > questions.length - 1) {
+  if (qCounter >= questions.length) {
     localStorage.setItem("mostRecentScore", score); //save score to localstorage
     return window.location.assign("gameover.html"); // if questions run out, go to gameover screen
   }
   qCounter++;
-
   questioncounterText.textContent = qCounter + "/" + questions.length;
 
-  var qIndex = Math.floor(Math.random() * questions.length); //randam index for random quesrion
-  var thisQuestion = questions[qIndex];
+  let qIndex = Math.floor(Math.random() * questions.length); //randam index for random quesrion
+  let thisQuestion = questions[qIndex];
   questionEl.innerText = thisQuestion.title; //put what is asked,questions.title, in <p> in HTML
   correctAnswer = thisQuestion.answer;
 
-  for (var i = 0; i < questionsAvailable.length; i++) {
+  for (var i = 0; i < 4; i++) {
     document.querySelector(".buttons").children[i].textContent =
       thisQuestion.choices[i]; //assign answer choice to the buttons
   }
+
   questionsAvailable = questionsAvailable.splice(qIndex, 1); //take out the question asked
-  return correctAnswer;
 }
 
-function checkAnswer(clicked_id) {
-  myTimer();
-  var response = document.getElementById(clicked_id).textContent;
+function checkAnswer(id) {
+  scoreText.innerText = score;
+  let response = document.getElementById(id).textContent;
   if (response == correctAnswer) {
     score += 20;
-    document.getElementById(clicked_id).style.backgroundColor = "#2493d3";
-    scoreText.innerText = score;
+    document.getElementById(id).style.backgroundColor = "#2493d3";
     commentEl.textContent = "Great job! The correct anwser is " + response;
   } else if (response !== correctAnswer) {
-    score;
-    scoreText.innerText = score;
-    timerText.innerText = t;
-    document.getElementById(clicked_id).style.backgroundColor = "#a00b0b";
+    document.getElementById(id).style.backgroundColor = "#a00b0b";
     commentEl.textContent = "This is not the right answer";
   }
 
   setTimeout(function () {
-    document.getElementById(clicked_id).style.backgroundColor = "#777777";
+    document.getElementById(id).style.backgroundColor = "#777777";
     commentEl.textContent = "";
     getQuestion();
   }, 800);
 }
+
 function myTimer() {
   t -= 1;
-  if (t < 60 && t > 1) {
-    mytime.innerHTML = t;
-  }
+  mytime.innerHTML = t;
   if (t < 1) {
     t = 0;
     localStorage.setItem("mostRecentScore", score); //save score to localstorage
