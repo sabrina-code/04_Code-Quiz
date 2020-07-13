@@ -150,7 +150,6 @@ let questions = [
 function startGame() {
   t = 45; //45 second countdown
   qCounter = 0; //question counter
-  score = 0;
   questionsAvailable = [...questions];
   myTimer();
   getQuestion();
@@ -178,10 +177,10 @@ function getQuestion() {
 }
 
 function checkAnswer(id) {
-  scoreText.innerText = score;
   let response = document.getElementById(id).textContent;
   if (response == correctAnswer) {
     score += 20;
+    scoreText.innerText = score;
     document.getElementById(id).style.backgroundColor = "#2493d3";
     commentEl.textContent = "Great job! The correct anwser is " + response;
   } else if (response !== correctAnswer) {
