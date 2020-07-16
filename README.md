@@ -4,11 +4,10 @@
 
 > Quiz Game on the user's knowledge about JavaScript.
 
-- A user has 45 seconds to answer a group of questions for each game.
 - Click on the answer to answer a question. Blue means correct; red isincorrect. Text feedback for each answered question is at the bottom of the game console.
+- A user has 45 seconds to answer a group of questions for each game.
 - With each correct answer, the user gains 20 scores.
-- A user can save his/her score from competing in a High Score List should he/she enters his/her name in the username field.
-- A High Score List tracks the top 8 scores among the users.
+- Users may save his/her scores in the High Score List. The High Score List tracks the top 8 scores among the users.
 
 https://sabrina-code.github.io/CodeQuiz4/
 
