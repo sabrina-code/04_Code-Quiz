@@ -170,6 +170,7 @@ let questions = [
 function startGame() {
   t = 45; //45 second countdown
   qCounter = 0; //question counter
+  allQuestions = [...questions];
   myTimer();
   getQuestion();
 }
@@ -180,7 +181,7 @@ function getQuestion() {
     return window.location.assign("gameover.html"); // if questions run out, go to gameover screen
   }
   qCounter++;
-  questioncounterText.textContent = qCounter + "/" + questions.length;
+  questioncounterText.textContent = qCounter + "/" + allQuestions.length;
 
   let qIndex = Math.floor(Math.random() * questions.length); //randam index for random quesrion
   let thisQuestion = questions[qIndex];
