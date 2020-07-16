@@ -202,10 +202,11 @@ function checkAnswer(id) {
     score += 20;
     scoreText.innerText = score;
     document.getElementById(id).style.backgroundColor = "#2493d3";
-    commentEl.textContent = "Great job! The correct anwser is " + response;
+    commentEl.textContent =
+      "Great job! The correct anwser is " + response + ".";
   } else if (response !== correctAnswer) {
     document.getElementById(id).style.backgroundColor = "#a00b0b";
-    commentEl.textContent = "This is not the right answer";
+    commentEl.textContent = "This is not the right answer.";
   }
 
   setTimeout(function () {
